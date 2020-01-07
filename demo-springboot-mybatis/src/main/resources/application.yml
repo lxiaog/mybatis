@@ -1,0 +1,45 @@
+#项目启动接口
+server:
+  port: 9001
+#spring相关配置
+spring:
+  application:
+    name: springboot-mybatis
+  profiles:
+    active: dev # 多环境配置切换   与之对应的是application-dev.yml
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver #数据库驱动
+    initialization-mode: always #加载项目中的数据文件
+    schema: classpath:schema.sql # 加载数据库创建语句
+    data: classpath:data.sql # 加载初始化数据
+    type: com.zaxxer.hikari.HikariDataSource #数据库连接池
+    hikari: # 数据库连接池相关信息配置
+      minimum-idle: 5
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+# mybatis配置
+mybatis:
+  type-aliases-package: com.springboot.demo.repository.entity # 映射数据库表的实体类包
+  mapper-locations: com/springboot/demo/repository/mapper/*Mapper.xml # 映射数据库SQL的xml包
+# mybatis分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+# 应用监控所有节点 actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+

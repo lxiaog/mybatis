@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.demo.repository.dao.ProductDao">
+    <select id="getList" resultType="com.springboot.demo.repository.entity.Product">
+        SELECT *  FROM product
+    </select>
+
+    <insert id="insertSelective" parameterType="com.springboot.demo.repository.entity.Product">
+        insert into product
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="serialNo != null">
+                SERIAL_NO,
+            </if>
+            <if test="transTypeId != null">
+                TRANS_TYPE_ID,
+            </if>
+            <if test="mchntCd != null">
+                MCHNT_CD,
+            </if>
+            <if test="deviceId != null">
+                DEVICE_ID,
+            </if>
+            <if test="deviceTypeFlag != null">
+                DEVICE_TYPE_FLAG,
+            </if>
+            <if test="batchNo != null">
+                BATCH_NO,
+            </if>
+            <if test="traceNo != null">
+                TRACE_NO,
+            </if>
+            <if test="transDatetime != null">
+                TRANS_DATETIME,
+            </if>
+            <if test="cardNo != null">
+                CARD_NO,
+            </if>
+            <if test="unionOrderId != null">
+                UNION_ORDER_ID,
+            </if>
+            <if test="qrchannel != null">
+                QRCHANNEL,
+            </if>
+            <if test="cardType != null">
+                CARD_TYPE,
+            </if>
+            <if test="transAmount != null">
+                TRANS_AMOUNT,
+            </if>
+            <if test="actualAmount != null">
+                ACTUAL_AMOUNT,
+            </if>
+            <if test="refundAmount != null">
+                REFUND_AMOUNT,
+            </if>
+            <if test="dealAmount != null">
+                DEAL_AMOUNT,
+            </if>
+            <if test="transFlag != null">
+                TRANS_FLAG,
+            </if>
+            <if test="hostCode != null">
+                HOST_CODE,
+            </if>
+            <if test="rerefNo != null">
+                REREF_NO,
+            </if>
+            <if test="authCd != null">
+                AUTH_CD,
+            </if>
+            <if test="respCd != null">
+                RESP_CD,
+            </if>
+            <if test="cardInNo != null">
+                CARD_IN_NO,
+            </if>
+            <if test="cardInType != null">
+                CARD_IN_TYPE,
+            </if>
+            <if test="handlingCharge != null">
+                HANDLING_CHARGE,
+            </if>
+            <if test="origSerialNo != null">
+                ORIG_SERIAL_NO,
+            </if>
+            <if test="origTraceNo != null">
+                ORIG_TRACE_NO,
+            </if>
+            <if test="origTransDatetime != null">
+                ORIG_TRANS_DATETIME,
+            </if>
+            <if test="origRerefNo != null">
+                ORIG_REREF_NO,
+            </if>
+            <if test="origBatchNo != null">
+                ORIG_BATCH_NO,
+            </if>
+            <if test="settlementDatetime != null">
+                SETTLEMENT_DATETIME,
+            </if>
+            <if test="channelType != null">
+                CHANNEL_TYPE,
+            </if>
+            <if test="icData != null">
+                IC_DATA,
+            </if>
+            <if test="t0Flag != null">
+                T0_FLAG,
+            </if>
+            <if test="t0FundsOut != null">
+                T0_FUNDS_OUT,
+            </if>
+            <if test="t0FundsIn != null">
+                T0_FUNDS_IN,
+            </if>
+            <if test="bankActivityId != null">
+                BANK_ACTIVITY_ID,
+            </if>
+            <if test="bankFullReduction != null">
+                BANK_FULL_REDUCTION,
+            </if>
+            <if test="bankDiscount != null">
+                BANK_DISCOUNT,
+            </if>
+            <if test="bankAccountSupplyStatus != null">
+                BANK_ACCOUNT_SUPPLY_STATUS,
+            </if>
+            <if test="vipId != null">
+                VIP_ID,
+            </if>
+            <if test="mchntActivityId != null">
+                MCHNT_ACTIVITY_ID,
+            </if>
+            <if test="mchntFullReduction != null">
+                MCHNT_FULL_REDUCTION,
+            </if>
+            <if test="mchntDiscount != null">
+                MCHNT_DISCOUNT,
+            </if>
+            <if test="mchntDeduction != null">
+                MCHNT_DEDUCTION,
+            </if>
+            <if test="vipIntegralIncrease != null">
+                VIP_INTEGRAL_INCREASE,
+            </if>
+            <if test="vipIntegralDecrease != null">
+                VIP_INTEGRAL_DECREASE,
+            </if>
+            <if test="termTellerId != null">
+                TERM_TELLER_ID,
+            </if>
+            <if test="serviceEntryMode != null">
+                SERVICE_ENTRY_MODE,
+            </if>
+            <if test="cardSequenceNo != null">
+                CARD_SEQUENCE_NO,
+            </if>
+            <if test="reservedData != null">
+                RESERVED_DATA,
+            </if>
+            <if test="cardSysNo != null">
+                CARD_SYS_NO,
+            </if>
+            <if test="cardSysDatetime != null">
+                CARD_SYS_DATETIME,
+            </if>
+            <if test="collStatus != null">
+                COLL_STATUS,
+            </if>
+            <if test="bak1 != null">
+                BAK1,
+            </if>
+            <if test="bak2 != null">
+                BAK2,
+            </if>
+            <if test="bak3 != null">
+                BAK3,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="serialNo != null">
+                #{serialNo,jdbcType=VARCHAR},
+            </if>
+            <if test="transTypeId != null">
+                #{transTypeId,jdbcType=VARCHAR},
+            </if>
+            <if test="mchntCd != null">
+                #{mchntCd,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceId != null">
+                #{deviceId,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceTypeFlag != null">
+                #{deviceTypeFlag,jdbcType=VARCHAR},
+            </if>
+            <if test="batchNo != null">
+                #{batchNo,jdbcType=VARCHAR},
+            </if>
+            <if test="traceNo != null">
+                #{traceNo,jdbcType=VARCHAR},
+            </if>
+            <if test="transDatetime != null">
+                #{transDatetime,jdbcType=VARCHAR},
+            </if>
+            <if test="cardNo != null">
+                #{cardNo,jdbcType=VARCHAR},
+            </if>
+            <if test="unionOrderId != null">
+                #{unionOrderId,jdbcType=VARCHAR},
+            </if>
+            <if test="qrchannel != null">
+                #{qrchannel,jdbcType=VARCHAR},
+            </if>
+            <if test="cardType != null">
+                #{cardType,jdbcType=VARCHAR},
+            </if>
+            <if test="transAmount != null">
+                #{transAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="actualAmount != null">
+                #{actualAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="refundAmount != null">
+                #{refundAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="dealAmount != null">
+                #{dealAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="transFlag != null">
+                #{transFlag,jdbcType=VARCHAR},
+            </if>
+            <if test="hostCode != null">
+                #{hostCode,jdbcType=VARCHAR},
+            </if>
+            <if test="rerefNo != null">
+                #{rerefNo,jdbcType=VARCHAR},
+            </if>
+            <if test="authCd != null">
+                #{authCd,jdbcType=VARCHAR},
+            </if>
+            <if test="respCd != null">
+                #{respCd,jdbcType=VARCHAR},
+            </if>
+            <if test="cardInNo != null">
+                #{cardInNo,jdbcType=VARCHAR},
+            </if>
+            <if test="cardInType != null">
+                #{cardInType,jdbcType=VARCHAR},
+            </if>
+            <if test="handlingCharge != null">
+                #{handlingCharge,jdbcType=DECIMAL},
+            </if>
+            <if test="origSerialNo != null">
+                #{origSerialNo,jdbcType=VARCHAR},
+            </if>
+            <if test="origTraceNo != null">
+                #{origTraceNo,jdbcType=VARCHAR},
+            </if>
+            <if test="origTransDatetime != null">
+                #{origTransDatetime,jdbcType=VARCHAR},
+            </if>
+            <if test="origRerefNo != null">
+                #{origRerefNo,jdbcType=VARCHAR},
+            </if>
+            <if test="origBatchNo != null">
+                #{origBatchNo,jdbcType=VARCHAR},
+            </if>
+            <if test="settlementDatetime != null">
+                #{settlementDatetime,jdbcType=VARCHAR},
+            </if>
+            <if test="channelType != null">
+                #{channelType,jdbcType=VARCHAR},
+            </if>
+            <if test="icData != null">
+                #{icData,jdbcType=VARCHAR},
+            </if>
+            <if test="t0Flag != null">
+                #{t0Flag,jdbcType=VARCHAR},
+            </if>
+            <if test="t0FundsOut != null">
+                #{t0FundsOut,jdbcType=VARCHAR},
+            </if>
+            <if test="t0FundsIn != null">
+                #{t0FundsIn,jdbcType=VARCHAR},
+            </if>
+            <if test="bankActivityId != null">
+                #{bankActivityId,jdbcType=VARCHAR},
+            </if>
+            <if test="bankFullReduction != null">
+                #{bankFullReduction,jdbcType=DECIMAL},
+            </if>
+            <if test="bankDiscount != null">
+                #{bankDiscount,jdbcType=DECIMAL},
+            </if>
+            <if test="bankAccountSupplyStatus != null">
+                #{bankAccountSupplyStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="vipId != null">
+                #{vipId,jdbcType=VARCHAR},
+            </if>
+            <if test="mchntActivityId != null">
+                #{mchntActivityId,jdbcType=VARCHAR},
+            </if>
+            <if test="mchntFullReduction != null">
+                #{mchntFullReduction,jdbcType=DECIMAL},
+            </if>
+            <if test="mchntDiscount != null">
+                #{mchntDiscount,jdbcType=DECIMAL},
+            </if>
+            <if test="mchntDeduction != null">
+                #{mchntDeduction,jdbcType=DECIMAL},
+            </if>
+            <if test="vipIntegralIncrease != null">
+                #{vipIntegralIncrease,jdbcType=DECIMAL},
+            </if>
+            <if test="vipIntegralDecrease != null">
+                #{vipIntegralDecrease,jdbcType=DECIMAL},
+            </if>
+            <if test="termTellerId != null">
+                #{termTellerId,jdbcType=VARCHAR},
+            </if>
+            <if test="serviceEntryMode != null">
+                #{serviceEntryMode,jdbcType=VARCHAR},
+            </if>
+            <if test="cardSequenceNo != null">
+                #{cardSequenceNo,jdbcType=VARCHAR},
+            </if>
+            <if test="reservedData != null">
+                #{reservedData,jdbcType=VARCHAR},
+            </if>
+            <if test="cardSysNo != null">
+                #{cardSysNo,jdbcType=VARCHAR},
+            </if>
+            <if test="cardSysDatetime != null">
+                #{cardSysDatetime,jdbcType=VARCHAR},
+            </if>
+            <if test="collStatus != null">
+                #{collStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="bak1 != null">
+                #{bak1,jdbcType=VARCHAR},
+            </if>
+            <if test="bak2 != null">
+                #{bak2,jdbcType=VARCHAR},
+            </if>
+            <if test="bak3 != null">
+                #{bak3,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+</mapper>
