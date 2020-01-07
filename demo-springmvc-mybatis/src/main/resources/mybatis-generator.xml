@@ -6,11 +6,11 @@
 
     <!-- 数据库驱动:选择你的本地硬盘上面的数据库驱动包-->
     <properties resource="jdbc.properties"/>
-    <!--mac-->
-    <!--<classPathEntry-->
-    <!--location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.6\mysql-connector-java-5.1.6.jar"/>-->
+    <!--    更改成自己本地mysql或者其他数据驱动jar包地址-->
     <classPathEntry
-            location="C:\Users\Administrator\.m2\repository\com\ibm\db2\jcc\db2jcc\db2jcc4\db2jcc-db2jcc4.jar"/>
+            location="C:\Users\Work\.m2\repository\mysql\mysql-connector-java\8.0.18\mysql-connector-java-8.0.18.jar"/>
+    <!--    <classPathEntry-->
+    <!--            location="C:\Users\Administrator\.m2\repository\com\ibm\db2\jcc\db2jcc\db2jcc4\db2jcc-db2jcc4.jar"/>-->
 
     <!--生成一个实体类 MyBatis3Simple   MyBatis3-->
     <context id="mysql" defaultModelType="flat" targetRuntime="MyBatis3">
@@ -67,178 +67,12 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
-        <!--<table tableName="TBL_APP" domainObjectName="App"></table>-->
-        <!--<table tableName="TBL_APP_APP_PARAMETER" domainObjectName="AppAppParameter"></table>-->
-        <!--<table tableName="TBL_APP_PARAMETER" domainObjectName="AppParameter"></table>-->
-        <!--已生成-->
-        <!--<table tableName="TBL_APP_PKG" domainObjectName="AppPkg"></table>-->
-        <!--<table tableName="TBL_APP_PKG_TMP" domainObjectName="AppPkgTmp"></table>-->
-        <!--<table tableName="TBL_APP_TYPE" domainObjectName="AppType"></table>-->
-
-        <!--已生成-->
-        <!--<table tableName="TBL_BANK_ACTIVITY" domainObjectName="BankActivity"></table>-->
-        <table tableName="TBL_BANK_ACTIVITY_CARDBIN_CARDBRANCH"
-               domainObjectName="BankActivityCardBranch"
+        <table tableName="TBL_PERSON"
+               domainObjectName="Person"
                enableCountByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
                enableUpdateByExample="false"
         />
-        <!--<table tableName="TBL_BANK_ACTIVITY_CARDBIN_TMP" domainObjectName="BankActivityCardbinTmp"></table>-->
-        <!--<table tableName="TBL_BANK_ACTIVITY_DISCOUNT" domainObjectName="BankActivityDiscount"></table>-->
-        <!--<table tableName="TBL_BANK_ACTIVITY_DISCOUNT_TMP" domainObjectName="BankActivityDiscountTmp"></table>-->
-        <!--<table tableName="TBL_BANK_ACTIVITY_FULL_REDUCE" domainObjectName="BankActivityReduce"></table>-->
-        <!--<table tableName="TBL_BANK_ACTIVITY_FULL_REDUCE_TMP" domainObjectName="BankActivityReduceTmp"></table>-->
-        <!--<table tableName="TBL_BANK_ACTIVITY_MCC" domainObjectName="BankActivityMcc"></table>-->
-        <!--<table tableName="TBL_BANK_ACTIVITY_MCHNT" domainObjectName="BankActivityMchnt"></table>-->
-        <!--<table tableName="TBL_BANK_ACTIVITY_MCHNT_TMP" domainObjectName="BankActivityMchntTmp"></table>-->
-        <!--<table tableName="TBL_BANK_ACTIVITY_NUM" domainObjectName="BankActivityNum"></table>-->
-        <!--<table tableName="TBL_BANK_ACTIVITY_TMP" domainObjectName="BankActivityTmp"></table>-->
-        <!--已生成-->
-        <!--<table tableName="TBL_BANK_AD" domainObjectName="BankAd"></table>-->
-        <!--<table tableName="TBL_BANK_AD_TMP" domainObjectName="BankAdTmp"></table>-->
-
-        <!--<table tableName="TBL_BMS_WEB_SESSION" domainObjectName="BmsWebSession"></table>-->
-
-        <!--<table tableName="TBL_BRANCH" domainObjectName="Branch"></table>-->
-        <!--<table tableName="TBL_BRANCH_ACCOUNT" domainObjectName="BranchAccount"></table>-->
-        <!--<table tableName="TBL_BRANCH_POPEDOM" domainObjectName="BranchPopedom"></table>-->
-        <!--已生成-->
-        <!--<table tableName="TBL_CARDBIN" domainObjectName="Cardbin"></table>-->
-
-        <!--<table tableName="TBL_CITY" domainObjectName="City"></table>-->
-
-        <!--<table tableName="TBL_COLL_ERROR_FLW" domainObjectName="CollErrorFlw"></table>-->
-        <!--已生成-->
-        <!--<table tableName="TBL_DEVICE" domainObjectName="Device"></table>-->
-        <!--<table tableName="TBL_DEVICE_APP" domainObjectName="DeviceApp"></table>-->
-        <!--<table tableName="TBL_DEVICE_APP_PARA" domainObjectName="DeviceAppPara"></table>-->
-        <!--<table tableName="TBL_DEVICE_BRAND" domainObjectName="DeviceBrand"></table>-->
-        <!--<table tableName="TBL_DEVICE_DCT" domainObjectName="DeviceDct"></table>-->
-
-        <!--<table tableName="TBL_DEVICE_MODEL" domainObjectName="DeviceModel"></table>-->
-        <!--<table tableName="TBL_DEVICE_TASK_PARA" domainObjectName="DeviceTaskPara"></table>-->
-        <!--<table tableName="TBL_DEVICE_TMP" domainObjectName="DeviceTmp"></table>-->
-        <!--<table tableName="TBL_DEVICE_TMS" domainObjectName="DeviceTms"></table>-->
-        <!--<table tableName="TBL_DEVICE_TMS_TMP" domainObjectName="DeviceTmsTmp"></table>-->
-
-        <!--<table tableName="TBL_DEV_CARD_LIMIT" domainObjectName="DevCardLimit"></table>-->
-        <!--<table tableName="TBL_DEV_LIMIT" domainObjectName="DevLimit"></table>-->
-        <!--<table tableName="TBL_DEV_LIMIT_CFG" domainObjectName="DevLimitCfg"></table>-->
-        <!--<table tableName="TBL_DEV_TRANS_REF" domainObjectName="DevTransRef"></table>-->
-
-        <!--<table tableName="TBL_DISTRICT" domainObjectName="District"></table>-->
-
-        <!--<table tableName="TBL_EPOS_MENU" domainObjectName="EposMenu"></table>-->
-        <!--<table tableName="TBL_EPOS_PROMPT" domainObjectName="EposPrompt"></table>-->
-        <!--<table tableName="TBL_EPOS_TRANS_CFG" domainObjectName="EposTransCfg"></table>-->
-        <!--<table tableName="TBL_EPOS_TYPE" domainObjectName="EposType"></table>-->
-
-        <!--<table tableName="TBL_FEE_TEMPLATE" domainObjectName="FeeTemplate"></table>-->
-
-        <!--<table tableName="TBL_GEOFENCE_LOG" domainObjectName="GeofenceLog"></table>-->
-
-        <!--<table tableName="TBL_HOLIDAY" domainObjectName="Holiday"></table>-->
-        <!--<table tableName="TBL_MACHINE" domainObjectName="Machine"></table>-->
-        <!--<table tableName="TBL_MACHINE_TMP" domainObjectName="MachineTmp"></table>-->
-
-        <!--<table tableName="TBL_MCC" domainObjectName="Mcc"></table>-->
-
-        <!--商户活动-->
-        <!--<table tableName="TBL_MCHNT_ACTIVITY" domainObjectName="MchntActivity"></table>-->
-        <!--<table tableName="TBL_MCHNT_ACTIVITY_DISCOUNT" domainObjectName="MchntActivityDiscount"></table>-->
-        <!--<table tableName="TBL_MCHNT_ACTIVITY_FULL_REDUCE" domainObjectName="MchntActivityFullReduce"></table>-->
-        <!--<table tableName="TBL_MCHNT_ACTIVITY_INTEGRAL" domainObjectName="MchntActivityIntegral"></table>-->
-        <!--<table tableName="TBL_MCHNT_ACTIVITY_LIMIT" domainObjectName="MchntActivityLimit"></table>-->
-        <!--<table tableName="TBL_MCHNT_ACTIVITY_VIP" domainObjectName="MchntActivityVip"></table>-->
-        <!--<table tableName="TBL_MCHNT_CARD_LIMIT" domainObjectName="MchntActivityCardLimit"></table>-->
-        <!--<table tableName="TBL_MCHNT_LIMIT" domainObjectName="MchntActivityLimit"></table>-->
-        <!--<table tableName="TBL_MCHNT_LIMIT_CFG" domainObjectName="MchntActivityLimitCfg"></table>-->
-        <!--已生成-->
-        <!--<table tableName="TBL_MCHNT_VIP" domainObjectName="MchntVip"></table>-->
-        <!--已生成-->
-        <!--<table tableName="TBL_MERCHANT"-->
-        <!--domainObjectName="Merchant"-->
-        <!--enableCountByExample="false"-->
-        <!--enableDeleteByExample="false"-->
-        <!--enableSelectByExample="false"-->
-        <!--enableUpdateByExample="false"-->
-        <!--/>-->
-        <!--<table tableName="TBL_MERCHANT_APPLY" domainObjectName="MerchantApply"></table>-->
-        <!--<table tableName="TBL_MERCHANT_FEE" domainObjectName="MerchantFee"></table>-->
-        <!--<table tableName="TBL_MERCHANT_FEE_TMP" domainObjectName="MerchantFeeTmp"></table>-->
-        <!--<table tableName="TBL_MERCHANT_MCT" domainObjectName="MerchantMct"></table>-->
-        <!--<table tableName="TBL_MERCHANT_TEMPLATE" domainObjectName="MerchantTemplate"></table>-->
-        <!--<table tableName="TBL_MERCHANT_TMP" domainObjectName="MerchantTmp"></table>-->
-        <!--已生成-->
-        <!--<table tableName="TBL_MSS_API_SESSION" domainObjectName="MssApiSession"></table>-->
-        <!--<table tableName="TBL_MSS_WEB_SESSION" domainObjectName="MssWebSession"></table>-->
-        <!---->
-        <!--<table tableName="TBL_OPERATOR" domainObjectName="Operator"></table>-->
-        <!--<table tableName="TBL_OPERATOR_LOG" domainObjectName="OperatorLog"></table>-->
-        <!---->
-        <!--<table tableName="TBL_OVERSEAS_CARDBIN" domainObjectName="OversasCardbin"></table>-->
-        <!---->
-        <!--<table tableName="TBL_PAY_BUSINESS" domainObjectName="PayBusiness"></table>-->
-        <!---->
-        <!--<table tableName="TBL_POPEDOM" domainObjectName="Popedom"></table>-->
-        <!--已生成-->
-        <!--<table tableName="TBL_POSP_PARAM" domainObjectName="PospParam"></table>-->
-        <!---->
-        <!--<table tableName="TBL_PROCEDURE_RECORD" domainObjectName="ProcedureRecord"></table>-->
-        <!---->
-        <!--<table tableName="TBL_PROVINCE" domainObjectName="Province"></table>-->
-        <!---->
-        <!--<table tableName="TBL_ROLE" domainObjectName="Role"></table>-->
-        <!--<table tableName="TBL_ROLE_OPERATOR" domainObjectName="RoleOperator"></table>-->
-        <!--<table tableName="TBL_ROLE_POPEDOM" domainObjectName="RolePopedom"></table>-->
-        <!---->
-        <!--<table tableName="TBL_SMS" domainObjectName="Sms"></table>-->
-        <!--<table tableName="TBL_SMS_LIMIT" domainObjectName="SmsLimit"></table>-->
-        <!---->
-        <!--<table tableName="TBL_T0COLL_RESULT" domainObjectName="TocollResult"></table>-->
-        <!---->
-        <!--<table tableName="TBL_TASK" domainObjectName="Task"></table>-->
-        <!--已生成-->
-        <!--<table tableName="TBL_TRANS_FLW" domainObjectName="TransFlw"></table>-->
-        <!--<table tableName="TBL_TRANS_IMG" domainObjectName="TransImg"></table>-->
-        <!--<table tableName="TBL_TRANS_MIR" domainObjectName="TransMir"></table>-->
-        <!--<table tableName="TBL_TRANS_SUM_TMP" domainObjectName="TransSumTmp"></table>-->
-        <!--已生成-->
-        <!--<table tableName="TBL_TRANS_TYPE_DEF" domainObjectName="TransTypeDef"></table>-->
-        <!---->
-        <!--<table tableName="TBL_UNMC_FLW" domainObjectName="UnmcFlw"></table>-->
-        <!--已生成-->
-        <!--<table tableName="TBL_VIP_INTEGRAL_RULE" domainObjectName="VipIntegralRule"></table>-->
-        <!---->
-        <!--<table tableName="TBL_DEVICE_PARAMETER" domainObjectName="DeviceParam"/>-->
-        <!--<table tableName="TBL_DEVICE_PARAMETER_TMP" domainObjectName="DeviceParamTmp"/>-->
-        <!--终端任务-->
-        <!--<table tableName="TBL_DEVICE_TASK" domainObjectName="DeviceTask"/>-->
-        <!--<table tableName="TBL_DEVICE_TASK_TMP" domainObjectName="DeviceTaskTmp"/>-->
-        <!--<table tableName="TBL_DEVICE_TASK_LIST" domainObjectName="DeviceTaskList"/>-->
-        <!--<table tableName="TBL_DEVICE_TASK_RESULT" domainObjectName="DeviceTaskResult"></table>-->
-        <!--<table tableName="TBL_BANK_ACTIVITY_MERCHANT" domainObjectName="BankActivityMerchant"/>-->
-        <!--<table tableName="TBL_BANK_ACTIVITY_RECORD" domainObjectName="BankActivityRecord"/>-->
-        <!--<table tableName="TBL_BANK_ACTIVITY_PERSON_CARD"-->
-               <!--domainObjectName="BankActivityPersonCard"-->
-               <!--enableCountByExample="false"-->
-               <!--enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false"-->
-               <!--enableUpdateByExample="false"-->
-        <!--/>-->
-        <!--<table tableName="TBL_TRANS_IMG" domainObjectName="TransImg"/>-->
-        <!--<table tableName="TBL_DEV_LIMIT" domainObjectName="DeviceLimit" />-->
-        <!--<table tableName="TBL_DEV_LIMIT_CFG" domainObjectName="DeviceLimitConfig" />-->
-        <!--<table tableName="TBL_MCHNT_LIMIT" domainObjectName="MerchantLimit" />-->
-        <!--<table tableName="TBL_MCHNT_LIMIT_CFG" domainObjectName="MerchantLimitConfig" />-->
-        <!--<table tableName="TBL_SYSTEM_ENVIRONMENT_VALUE"-->
-               <!--domainObjectName="SystemEvnValue"-->
-               <!--enableCountByExample="false"-->
-               <!--enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false"-->
-               <!--enableUpdateByExample="false"-->
-        <!--/>-->
-
     </context>
 </generatorConfiguration>
