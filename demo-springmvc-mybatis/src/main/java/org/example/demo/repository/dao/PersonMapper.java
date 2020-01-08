@@ -2,6 +2,8 @@ package org.example.demo.repository.dao;
 
 import org.example.demo.repository.entity.Person;
 
+import java.util.List;
+
 public interface PersonMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -10,6 +12,8 @@ public interface PersonMapper {
     int insertSelective(Person record);
 
     Person selectByPrimaryKey(Integer id);
+
+    List<Person> list();
 
     int updateByPrimaryKeySelective(Person record);
 
