@@ -6,7 +6,7 @@
 debug:当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。 -->
 <configuration scan="true" debug="false">
     <!-- 定义日志文件 输入位置 tomcat 下的logs路径下 更改对应的项目名称，会创建对应的文件夹-->
-    <property name="path" value="../logs/demo-springmvc-mybatis"/>
+    <property name="path" value="../logs/demo-springboot-mybatis"/>
     <!--<conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>-->
     <!--<conversionRule conversionWord="wex"-->
     <!--converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>-->
@@ -20,10 +20,10 @@ debug:当此属性设置为true时，将打印出logback内部日志信息，实
     <!--value="%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{10}) - %cyan(%msg%n)"/>-->
     <!--控制台打印彩色日志-->
     <property name="CONSOLE_LOG_PATTERN"
-              value="%highlight(%d{HH:mm:ss}- [%X{THREAD_ID}] - %-5level[line%4line] - %logger{10} - %msg%n)"/>
+              value="%red(%d{HH:mm:ss})-%green([%X{THREAD_ID}])-%highlight(%-5level[%4line])-%boldMagenta(%logger{10}) : %cyan(%msg%n)"/>
     <!--    日志文件输入时的格式-->
     <property name="FILE_LOG_PATTERN"
-              value="%d{HH:mm:ss}-[%X{THREAD_ID}] - %-5level[%4line] - %logger{10}  - %msg%n"/>
+              value="%d{HH:mm:ss}-[%X{THREAD_ID}]-%-5level[%4line] - %logger{10}  - %msg%n"/>
 
 
     <logger name="org.springframework" level="ERROR"/>

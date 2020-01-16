@@ -1,8 +1,7 @@
-package org.example.demo.controller;
+package com.springboot.demo.controller;
 
-import com.alibaba.fastjson.JSON;
+import com.springboot.demo.service.PersonService;
 import lombok.extern.slf4j.Slf4j;
-import org.example.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,11 +15,11 @@ public class PersonController {
     private PersonService personService;
 
     @RequestMapping(value = "/list", produces = "application/json;charset=utf-8")
-    public String geiList() {
+    public Object geiList() {
         log.debug("查询list");
         log.info("查询list");
         log.warn("查询list");
         log.error("查询list");
-        return JSON.toJSONString(personService.getList());
+        return personService.getList();
     }
 }

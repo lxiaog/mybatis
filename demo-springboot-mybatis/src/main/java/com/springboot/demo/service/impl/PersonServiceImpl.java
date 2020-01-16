@@ -1,8 +1,8 @@
-package org.example.demo.service.impl;
+package com.springboot.demo.service.impl;
 
+import com.springboot.demo.repository.dao.PersonDao;
+import com.springboot.demo.service.PersonService;
 import lombok.extern.slf4j.Slf4j;
-import org.example.demo.repository.dao.PersonMapper;
-import org.example.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class PersonServiceImpl implements PersonService {
 
-    @Autowired
-    private PersonMapper personMapper;
+    @Autowired(required = false)
+    private PersonDao personDao;
 
     @Override
     public Object getList() {
-        return personMapper.list();
+        return personDao.list();
     }
 }

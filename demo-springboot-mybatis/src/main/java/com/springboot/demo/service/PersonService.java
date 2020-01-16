@@ -1,4 +1,4 @@
-package org.example.demo.service;
+package com.springboot.demo.service;
 
 public interface PersonService {
 

@@ -1,4 +1,9 @@
 # springboot 搭建ssm框架
+
+#### 2020-1-16
+    1、新增日志打印唯一ID功能
+    
+
 #### 新建Springboot项目，导入依赖
     <dependencies>
         <!--应用监控-->
