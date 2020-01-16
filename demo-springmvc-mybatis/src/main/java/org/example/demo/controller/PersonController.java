@@ -17,7 +17,10 @@ public class PersonController {
 
     @RequestMapping(value = "/list", produces = "application/json;charset=utf-8")
     public String geiList() {
+        log.debug("查询list");
         log.info("查询list");
+        log.warn("查询list");
+        log.error("查询list");
         return JSON.toJSONString(personService.getList());
     }
 }

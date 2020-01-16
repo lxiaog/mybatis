@@ -10,6 +10,13 @@
 
     <!-- 启动spring注解式 -->
     <mvc:annotation-driven/>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="org.example.demo.config.log.LogInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 <!--    <mvc:annotation-driven>-->
     <!--        <mvc:message-converters>-->
     <!--            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">-->
