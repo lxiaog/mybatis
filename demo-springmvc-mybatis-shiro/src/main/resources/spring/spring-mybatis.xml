@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!--    引入jdbc.properties配置 ignore-unresolvable="true"
+    可以引入多个properties的配置文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"
+                                  ignore-unresolvable="true"/>
+    <!--   数据源 DruidDataSource 两个数据源选择其一-->
+    <!--    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+    <!--        <property name="driverClassName" value="${jdbc.driver}"/>-->
+    <!--        <property name="url" value="${jdbc.url}"/>-->
+    <!--        <property name="username" value="${jdbc.username}"/>-->
+    <!--        <property name="password" value="${jdbc.password}"/>-->
+    <!--        <property name="initialSize" value="${jdbc.initialSize}"/>-->
+    <!--        <property name="maxActive" value="${jdbc.maxActive}"/>-->
+    <!--        <property name="maxWait" value="${jdbc.maxWait}"/>-->
+    <!--        <property name="minIdle" value="${jdbc.minIdle}"/>-->
+    <!--        <property name="testOnBorrow" value="${jdbc.testOnBorrow}"/>-->
+    <!--        <property name="testOnReturn" value="${jdbc.testOnReturn}"/>-->
+    <!--        <property name="testWhileIdle" value="${jdbc.testWhileIdle}"/>-->
+    <!--        <property name="timeBetweenEvictionRunsMillis"-->
+    <!--                  value="${jdbc.timeBetweenEvictionRunsMillis}"/>-->
+    <!--        <property name="minEvictableIdleTimeMillis"-->
+    <!--                  value="${jdbc.minEvictableIdleTimeMillis}"/>-->
+    <!--        <property name="removeAbandonedTimeout"-->
+    <!--                  value="${jdbc.removeAbandonedTimeout}"/>-->
+    <!--        <property name="removeAbandoned" value="${jdbc.removeAbandoned}"/>-->
+    <!--        <property name="logAbandoned" value="${jdbc.logAbandoned}"/>-->
+    <!--    </bean>-->
+    <!--  HikariDataSource数据库  两个数据源选择其-->
+    <bean id="hikariDataSource" class="com.zaxxer.hikari.HikariDataSource">
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="minimumIdle" value="${hikari.minimumIdle}"/>
+        <property name="autoCommit" value="${hikari.autoCommit}"/>
+        <property name="idleTimeout" value="${hikari.idleTimeout}"/>
+        <property name="maximumPoolSize" value="${hikari.maximumPoolSize}"/>
+        <property name="poolName" value="${hikari.poolName}"/>
+        <property name="maxLifetime" value="${hikari.maxFifetime}"/>
+        <property name="connectionTimeout" value="${hikari.connectionTimeout}"/>
+        <property name="connectionTestQuery" value="${hikari.connectionTestQuery}"/>
+    </bean>
+    <!--    配置SQLSessionFactoryBean-->
+    <bean id="sqlSessionFactoryBean"
+          class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="hikariDataSource"/>
+        <!--        mybatis配置文件 -->
+<!--        <property name="configLocation" value="classpath:mybatis-config.xml"/>-->
+        <!--        对应实体类包-->
+        <property name="typeAliasesPackage"
+                  value="org.example.demo.repository.entity"/>
+        <!--        mapper.xml映射文件-->
+        <property name="mapperLocations"
+                  value="classpath:org/example/demo/repository/mapper/*Mapper.xml"/>
+    </bean>
+    <!--    配置dao扫描器-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
+        <property name="basePackage" value="org.example.demo.repository.dao"/>
+    </bean>
+    <!--    可以配置批量处理数据的sqlSession执行器-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <!--        构造方法传参 设置sql SessionFactoryBean-->
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
+        <!--        构造方法传参  设置批量执行器-->
+        <constructor-arg name="executorType" value="BATCH"/>
+    </bean>
+    <!--    配置事务管理器-->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="hikariDataSource"/>
+    </bean>
+    <!--    开启事务注解功能-->
+    <tx:annotation-driven transaction-manager="transactionManager"
+                          proxy-target-class="false"/>
+</beans>
